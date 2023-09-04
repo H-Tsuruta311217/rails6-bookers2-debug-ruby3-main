@@ -31,3 +31,4 @@ window.raty = function(elem,opt) {
   raty.init();
   return raty;
 }
+window.$ = window.jQuery = require('jquery');
