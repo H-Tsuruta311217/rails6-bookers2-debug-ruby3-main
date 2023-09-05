@@ -26,12 +26,12 @@
           starHalf: "<%= asset_path('star-half.png') %>",
           scoreName: 'book[star]',
         };
-        // raty(elem, opt);
+        raty(elem, opt);
       });
     </script>
   <% else %>
     <div class="form-group">
-      <%#= render "static_rate", book: book %>
+      <%= render "static_rate", book: book %>
     </div>
   <% end %>
 
