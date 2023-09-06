@@ -8,6 +8,11 @@ class BooksController < ApplicationController
     @user = @book.user
     @newbook = Book.new
     @book_comment = BookComment.new
+    #read_count = ReadCount.new(book_id: @book.id, user_id: current_user.id)
+    #ReadCountを新しく作成し、book_idに取得してきた本のid、user_idにcurrent_user = つまり自分のidを入力
+    #read_count.save
+    #上２行を纏めて書くとこちら
+    current_user.read_counts.create(book_id: @book.id)#createはsave不要
   end
 
   def index
@@ -18,7 +23,7 @@ class BooksController < ApplicationController
         x.favorited_users.includes(:favorites).where(created_at: from...to).size
       }.reverse
     @book = Book.new
-    
+
   end
 
   def create
