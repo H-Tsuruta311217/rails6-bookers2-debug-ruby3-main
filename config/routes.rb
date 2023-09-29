@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:index,:show,:edit,:update] do
+    get "search" => "users#search"
     member do
       get :follows, :followers
     end

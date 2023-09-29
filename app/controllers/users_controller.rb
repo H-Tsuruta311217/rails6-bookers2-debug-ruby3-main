@@ -31,6 +31,12 @@ class UsersController < ApplicationController
         @entry = Entry.new
       end
     end
+    if params[:created_at] == "" #入力が空欄なら
+      @search_book = "日付を選択してください"
+    else
+      create_at = params[:created_at]
+      @search_book = @books.where(['created_at LIKE ? ', "#{create_at}%"]).count
+    end
   end
 
   def index
